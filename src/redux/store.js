@@ -10,7 +10,7 @@ import {
 import storage from 'redux-persist/lib/storage'
 import contactsReducer from "./contactsSlice"
 import filtersReduser from "./filtersSlice"
-import initialContacts from '../contacts.json'
+
 
 
 
@@ -33,13 +33,6 @@ export const store = configureStore({
         contacts: persistedContactReducer,
         filters: persistedFilterReducer
   },
-   preloadedState: { 
-    contacts: {
-      items: initialContacts
-    }
-  },
-
-    
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
