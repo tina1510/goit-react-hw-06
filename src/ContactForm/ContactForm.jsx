@@ -2,18 +2,25 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { nanoid } from 'nanoid'
 import * as Yup from "yup";
 import css from "./ContactForm.module.css"
+import { useDispatch } from 'react-redux';
+import { addContacts } from '../redux/contactsSlice';
 const FeedbackSchema = Yup.object().shape({
     username: Yup.string().min(3, "To short!").max(50, "To long!").required("Required"),
   number: Yup.string().min(3, "To short!").max(50, "To long!").required("Required")
 })
 
-const ContactForm = ({ onAdd }) => {
+const ContactForm = () => {
+
+    const dispatch = useDispatch();
+
     const handleSubmit =(values, actions) => {
-        onAdd({
+        const newContact = {
             id: nanoid(),
             name: values.username,
             number: values.number
-        })
+        };
+        dispatch(addContacts(newContact));
+
         actions.resetForm();
     }
 
