@@ -1,0 +1,10 @@
+ul {
+  list-style: none;
+}
+.listContact {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding-left: 0;
+}
