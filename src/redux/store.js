@@ -19,12 +19,19 @@ const contactsPersistConfig = {
     storage,
   whitelist: [`items`]
 }
+const filtersPersistConfig = {
+  key: 'filters',
+    storage,
+  whitelist: [`name`]
+}
 const persistedContactReducer = persistReducer(contactsPersistConfig, contactsReducer)
+
+const persistedFilterReducer = persistReducer(filtersPersistConfig, filtersReduser)
 
 export const store = configureStore({
     reducer: {
         contacts: persistedContactReducer,
-        filters: filtersReduser
+        filters: persistedFilterReducer
   },
    preloadedState: { 
     contacts: {
