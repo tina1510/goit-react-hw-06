@@ -1,6 +1,6 @@
-import SearchBox from './SearchBox/SearchBox.jsx';
-import ContactList from './ContactList/ContactList.jsx'
-import ContactForm from './ContactForm/ContactForm.jsx';
+import SearchBox from './components/SearchBox/SearchBox.jsx';
+import ContactList from './components/ContactList/ContactList.jsx'
+import ContactForm from './components/ContactForm/ContactForm.jsx';
 
 function App() {
 
