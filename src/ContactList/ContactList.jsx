@@ -4,22 +4,18 @@ import css from "./ContactList.module.css"
 import { addContacts, deleteContact, selectContacts } from "../redux/contactsSlice";
 import { selectNameFilter } from "../redux/filtersSlice";
 import initialContacts from '../contacts.json'
-import { useEffect } from "react";
 
 const ContactList = () => {
     const dispatch = useDispatch();
     const contacts = useSelector(selectContacts);
-
-    useEffect(() => {
-        if (contacts.length === 0) {
-            dispatch(addContacts(initialContacts));
-        }
-    }, [dispatch, contacts]);
+  if (contacts.length === 0) {
+    dispatch(addContacts(initialContacts));
+    }
 
         const filter = useSelector(selectNameFilter);
-const filteredContacts = contacts ? contacts.filter((contact) =>
-  contact.name && contact.name.toLowerCase().includes(filter ? filter.toLowerCase() : '')
-) : [];
+    const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
 
     const handleDelete = (contactId) => {
         dispatch(deleteContact(contactId));

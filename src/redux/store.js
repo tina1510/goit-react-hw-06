@@ -13,19 +13,21 @@ import filtersReduser from "./filtersSlice"
 
 
 
+
 const contactsPersistConfig = {
   key: 'contacts',
     storage,
-  whitelist: [`items`]
+  whitelist: [`items`],
+
 }
 const persistedContactReducer = persistReducer(contactsPersistConfig, contactsReducer)
+
 
 export const store = configureStore({
     reducer: {
         contacts: persistedContactReducer,
         filters: filtersReduser
-    },
-
+  },
     
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
