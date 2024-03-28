@@ -3,12 +3,13 @@ const slice = createSlice({
     name: "contacts",
     initialState: {
   items: []
+
     },
     reducers: {
        
         addContacts(state, action) {
              state.items.push(action.payload);
-      
+        //    state.items = [...state.items, action.payload]
             
         },
         deleteContact(state, action) {

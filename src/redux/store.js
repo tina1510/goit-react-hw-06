@@ -13,26 +13,20 @@ import filtersReduser from "./filtersSlice"
 
 
 
-
 const contactsPersistConfig = {
   key: 'contacts',
     storage,
   whitelist: [`items`]
 }
-const filtersPersistConfig = {
-  key: 'filters',
-    storage,
-  whitelist: [`name`]
-}
 const persistedContactReducer = persistReducer(contactsPersistConfig, contactsReducer)
-
-const persistedFilterReducer = persistReducer(filtersPersistConfig, filtersReduser)
 
 export const store = configureStore({
     reducer: {
         contacts: persistedContactReducer,
-        filters: persistedFilterReducer
-  },
+        filters: filtersReduser
+    },
+
+    
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
