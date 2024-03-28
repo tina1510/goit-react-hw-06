@@ -13,9 +13,9 @@ const ContactList = () => {
     }
 
         const filter = useSelector(selectNameFilter);
-    const filteredContacts = contacts.filter((contact) =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
+const filteredContacts = contacts ? contacts.filter((contact) =>
+  contact.name && contact.name.toLowerCase().includes(filter ? filter.toLowerCase() : "")
+) : [];
 
     const handleDelete = (contactId) => {
         dispatch(deleteContact(contactId));
